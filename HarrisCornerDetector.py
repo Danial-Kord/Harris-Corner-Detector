@@ -27,10 +27,19 @@ def harris_corner_detector(image, k=0.4, window_size=5, threshold=0.8):
     return image
 
 
-image = cv2.imread('1.png')
-result = harris_corner_detector(image)
 
+k_values = [0.4]
+window_size_values = [3,5,7]
+threshold_values = [0.01,0.1,0.2,0.4,0.5,0.7,0.8,0.9,0.99,0.999,0.9999,0.99999]
 
-plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
-plt.title('Harris Corner Detection')
-plt.show()
+for k in k_values:
+    for w in window_size_values:
+        for t in threshold_values:
+            image = cv2.imread('1.png')
+            result = harris_corner_detector(image)
+
+            plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
+            cv2.imwrite(f"C:\\Danial\\Projects\\Danial\\Panorama\\harris_results\\harris_k{k}_window{w}_threshold{t}.jpg", result)
+            # plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
+            # plt.title('Harris Corner Detection')
+            # plt.show()
