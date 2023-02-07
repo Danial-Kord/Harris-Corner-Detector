@@ -53,7 +53,7 @@ for w in window_size_values:
             result = harris_corner_detector(image,k=k, window_size=w, threshold=t)
 
             plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
-            cv2.imwrite(f"C:\\Danial\\Projects\\Danial\\Panorama\\harris_results\\harris_k{k}_window{w}_threshold{t}.jpg", result)
+            cv2.imwrite(f"./harris_results/harris_k{k}_window{w}_threshold{t}.jpg", result)
             # plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
             # plt.title('Harris Corner Detection')
             # plt.show()
